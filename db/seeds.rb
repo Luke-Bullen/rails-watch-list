@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Movie.destroy_all if Rails.env.development?
 
 url = 'http://tmdb.lewagon.com/movie/top_rated'
 read = URI.open(url).read
