@@ -8,12 +8,19 @@
 <br>
 
 <% @lists.each do |list| %>
-    <%= link_to list_path(list), class:"text-decoration-none" do %>
-        <%= list.name %>
-      </div>
-    <% end %>
+      <%= link_to list_path(list), class:"text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('elephant-on-turtle.jpg')%>)">
+          <%= list.name %>
+        </div>
+      <% end %>
 <% end %>
 
 <br><br><br>
 
 <%= link_to "Create a movie list", new_list_path, class: "btn btn-primary" %>
+
+<br><br><br>
+<!--
+<%= cl_image_tag("https://res.cloudinary.com/dkpyxl1lb/image/upload/c_thumb,w_200,g_face/v1661525287/n6dtwsmfhsm5vxzuawpr.jpg",
+      width: 400, height: 300, crop: :fill) %>
+-->

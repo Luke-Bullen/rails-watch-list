@@ -3,9 +3,10 @@
 
 
 
-<h1><%= @list.name %></h1>
 
-<br><br><br>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('elephant-on-turtle.jpg') %>)">
+  <h1><%= @list.name %></h1>
+</div>
 
 <% @list.movies.each do |movie| %>
   <h2><%= movie.title %></h2>
@@ -14,8 +15,7 @@
   <img src="<%= movie.poster_url %>" alt="">
   <hr>
 <% end %>
-<br><br><br>
-
+  <br><br><br>
 <%= link_to "add movie", new_list_bookmark_path(@list.id), class: "btn btn-primary"%>
 
 <br><br><br>
